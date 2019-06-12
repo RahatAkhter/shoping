@@ -26,7 +26,7 @@ namespace shoping
 
             string Us = "rahatakhter61@gmail.com";
             id = Convert.ToString(Us.ToString());
-
+            // ok we will try 
            // string  uid2 = (string)Session["email2"];
            // uid3 = Convert.ToString(uid2.ToString());
             //SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O14MIVL;Initial Catalog=bitcoin;Integrated Security=True");
