@@ -1,0 +1,501 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E873867B-09D7-4018-99DA-1FA831A21F10}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>shoping</RootNamespace>
+    <AssemblyName>shoping</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\asset\addmininfo.aspx" />
+    <Content Include="admin\asset\Adminlogout.aspx" />
+    <Content Include="admin\asset\ckusershop.aspx" />
+    <Content Include="admin\asset\css\bootstrap.min.css" />
+    <Content Include="admin\asset\css\escro1.css" />
+    <Content Include="admin\asset\css\font-awesome.min.css" />
+    <Content Include="admin\asset\css\green.css" />
+    <Content Include="admin\asset\css\magnific-popup.css" />
+    <Content Include="admin\asset\css\select2.min.css" />
+    <Content Include="admin\asset\css\style.css" />
+    <Content Include="admin\asset\fed.aspx" />
+    <Content Include="admin\asset\gusshop.aspx" />
+    <Content Include="admin\asset\js\bootstrap.min.js" />
+    <Content Include="admin\asset\js\custom.js" />
+    <Content Include="admin\asset\js\jquery-2.2.4.min.js" />
+    <Content Include="admin\asset\js\jquery.magnific-popup.min.js" />
+    <Content Include="admin\asset\js\modernizr.js" />
+    <Content Include="admin\asset\js\select2.min.js" />
+    <Content Include="admin\asset\js\styleswitcher.js" />
+    <Content Include="admin\asset\mailogin.aspx" />
+    <Content Include="admin\asset\main.aspx" />
+    <Content Include="admin\asset\pic\1.png" />
+    <Content Include="admin\asset\pic\2.png" />
+    <Content Include="admin\asset\pic\404.jpg" />
+    <Content Include="admin\asset\pic\503.jpg" />
+    <Content Include="admin\asset\pic\about-us.png" />
+    <Content Include="admin\asset\pic\bg-banner.jpg" />
+    <Content Include="admin\asset\pic\bg-calculator.jpg" />
+    <Content Include="admin\asset\pic\bg-quote.jpg" />
+    <Content Include="admin\asset\pic\bg-user-2.jpg" />
+    <Content Include="admin\asset\pic\bg-user-3.jpg" />
+    <Content Include="admin\asset\pic\bg-user.jpg" />
+    <Content Include="admin\asset\pic\bg.png" />
+    <Content Include="admin\asset\pic\bg1.jpg" />
+    <Content Include="admin\asset\pic\bg2.jpg" />
+    <Content Include="admin\asset\pic\call-to-action-bg.jpg" />
+    <Content Include="admin\asset\pic\ceo.jpg" />
+    <Content Include="admin\asset\pic\coming-soon.jpg" />
+    <Content Include="admin\asset\pic\favicon.png" />
+    <Content Include="admin\asset\pic\icon\add-bitcoins.png" />
+    <Content Include="admin\asset\pic\icon\buy-sell-bitcoins.png" />
+    <Content Include="admin\asset\pic\icon\cost-efficiency.png" />
+    <Content Include="admin\asset\pic\icon\download-bitcoin.png" />
+    <Content Include="admin\asset\pic\icon\favicon.png" />
+    <Content Include="admin\asset\pic\icon\high-liquidity.png" />
+    <Content Include="admin\asset\pic\icon\mobile-app.png" />
+    <Content Include="admin\asset\pic\icon\payment-options.png" />
+    <Content Include="admin\asset\pic\icon\strong-security.png" />
+    <Content Include="admin\asset\pic\icon\world-coverage.png" />
+    <Content Include="admin\asset\pic\logo.png" />
+    <Content Include="admin\asset\tradBuy.aspx" />
+    <Content Include="admin\asset\tradSell.aspx" />
+    <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="ChatBox.aspx" />
+    <Content Include="jquery-1.6.4.min.js" />
+    <Content Include="Scripts\jquery-1.6.4.js" />
+    <Content Include="Scripts\jquery-1.6.4.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.min.js" />
+    <Content Include="user\asset\about.aspx" />
+    <Content Include="user\asset\BuyC.aspx" />
+    <Content Include="user\asset\BuyOption.aspx" />
+    <Content Include="user\asset\chose.aspx" />
+    <Content Include="user\asset\contact.aspx" />
+    <Content Include="user\asset\cpshoping.aspx" />
+    <Content Include="user\asset\css\bootstrap.min.css" />
+    <Content Include="user\asset\css\escro1.css" />
+    <Content Include="user\asset\css\font-awesome.min.css" />
+    <Content Include="user\asset\css\green.css" />
+    <Content Include="user\asset\css\magnific-popup.css" />
+    <Content Include="user\asset\css\select2.min.css" />
+    <Content Include="user\asset\css\sidnavcss.css" />
+    <Content Include="user\asset\css\style.css" />
+    <Content Include="user\asset\css\table.css" />
+    <Content Include="user\asset\faq.aspx" />
+    <Content Include="user\asset\gust1.aspx" />
+    <Content Include="user\asset\index.aspx" />
+    <Content Include="user\asset\js\bootstrap.min.js" />
+    <Content Include="user\asset\js\custom.js" />
+    <Content Include="user\asset\js\jquery-2.2.4.min.js" />
+    <Content Include="user\asset\js\jquery.magnific-popup.min.js" />
+    <Content Include="user\asset\js\modernizr.js" />
+    <Content Include="user\asset\js\select2.min.js" />
+    <Content Include="user\asset\js\styleswitcher.js" />
+    <Content Include="user\asset\login.aspx" />
+    <Content Include="user\asset\logout.aspx" />
+    <Content Include="user\asset\pic\1.jpg" />
+    <Content Include="user\asset\pic\1.png" />
+    <Content Include="user\asset\pic\2.jpg" />
+    <Content Include="user\asset\pic\2.png" />
+    <Content Include="user\asset\pic\404.jpg" />
+    <Content Include="user\asset\pic\503.jpg" />
+    <Content Include="user\asset\pic\about-us.png" />
+    <Content Include="user\asset\pic\bg-banner.jpg" />
+    <Content Include="user\asset\pic\bg-calculator.jpg" />
+    <Content Include="user\asset\pic\bg-quote.jpg" />
+    <Content Include="user\asset\pic\bg-user-2.jpg" />
+    <Content Include="user\asset\pic\bg-user-3.jpg" />
+    <Content Include="user\asset\pic\bg-user.jpg" />
+    <Content Include="user\asset\pic\bg.png" />
+    <Content Include="user\asset\pic\bg1.jpg" />
+    <Content Include="user\asset\pic\bg2.jpg" />
+    <Content Include="user\asset\pic\call-to-action-bg.jpg" />
+    <Content Include="user\asset\pic\ceo.jpg" />
+    <Content Include="user\asset\pic\coming-soon.jpg" />
+    <Content Include="user\asset\pic\favicon.png" />
+    <Content Include="user\asset\pic\icon\add-bitcoins.png" />
+    <Content Include="user\asset\pic\icon\buy-sell-bitcoins.png" />
+    <Content Include="user\asset\pic\icon\cost-efficiency.png" />
+    <Content Include="user\asset\pic\icon\download-bitcoin.png" />
+    <Content Include="user\asset\pic\icon\favicon.png" />
+    <Content Include="user\asset\pic\icon\high-liquidity.png" />
+    <Content Include="user\asset\pic\icon\mobile-app.png" />
+    <Content Include="user\asset\pic\icon\payment-options.png" />
+    <Content Include="user\asset\pic\icon\strong-security.png" />
+    <Content Include="user\asset\pic\icon\world-coverage.png" />
+    <Content Include="user\asset\pic\logo.png" />
+    <Content Include="user\asset\registration.aspx" />
+    <Content Include="user\asset\SellCaspx.aspx" />
+    <Content Include="user\asset\SelloPtionaspx.aspx" />
+    <Content Include="user\asset\shop.aspx" />
+    <Content Include="user\asset\term.aspx" />
+    <Content Include="user\asset\trading.aspx" />
+    <Content Include="user\asset\TreadBuyRecoed.aspx" />
+    <Content Include="user\asset\TreadSellRecoed.aspx" />
+    <Content Include="user\asset\userinfo.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="admin\admin.Master.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin.Master.designer.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin\asset\addmininfo.aspx.cs">
+      <DependentUpon>addmininfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\asset\addmininfo.aspx.designer.cs">
+      <DependentUpon>addmininfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\asset\Adminlogout.aspx.cs">
+      <DependentUpon>Adminlogout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\asset\Adminlogout.aspx.designer.cs">
+      <DependentUpon>Adminlogout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\asset\ckusershop.aspx.cs">
+      <DependentUpon>ckusershop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\asset\ckusershop.aspx.designer.cs">
+      <DependentUpon>ckusershop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\asset\fed.aspx.cs">
+      <DependentUpon>fed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\asset\fed.aspx.designer.cs">
+      <DependentUpon>fed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\asset\gusshop.aspx.cs">
+      <DependentUpon>gusshop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\asset\gusshop.aspx.designer.cs">
+      <DependentUpon>gusshop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\asset\mailogin.aspx.cs">
+      <DependentUpon>mailogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\asset\mailogin.aspx.designer.cs">
+      <DependentUpon>mailogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\asset\main.aspx.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\asset\main.aspx.designer.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\asset\tradBuy.aspx.cs">
+      <DependentUpon>tradBuy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\asset\tradBuy.aspx.designer.cs">
+      <DependentUpon>tradBuy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\asset\tradSell.aspx.cs">
+      <DependentUpon>tradSell.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\asset\tradSell.aspx.designer.cs">
+      <DependentUpon>tradSell.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChatBox.aspx.cs">
+      <DependentUpon>ChatBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChatBox.aspx.designer.cs">
+      <DependentUpon>ChatBox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyHub.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="user\asset\about.aspx.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\about.aspx.designer.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\BuyC.aspx.cs">
+      <DependentUpon>BuyC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\BuyC.aspx.designer.cs">
+      <DependentUpon>BuyC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\BuyOption.aspx.cs">
+      <DependentUpon>BuyOption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\BuyOption.aspx.designer.cs">
+      <DependentUpon>BuyOption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\chose.aspx.cs">
+      <DependentUpon>chose.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\chose.aspx.designer.cs">
+      <DependentUpon>chose.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\contact.aspx.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\contact.aspx.designer.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\cpshoping.aspx.cs">
+      <DependentUpon>cpshoping.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\cpshoping.aspx.designer.cs">
+      <DependentUpon>cpshoping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\faq.aspx.cs">
+      <DependentUpon>faq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\faq.aspx.designer.cs">
+      <DependentUpon>faq.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\gust1.aspx.cs">
+      <DependentUpon>gust1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\gust1.aspx.designer.cs">
+      <DependentUpon>gust1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\registration.aspx.cs">
+      <DependentUpon>registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\registration.aspx.designer.cs">
+      <DependentUpon>registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\SellCaspx.aspx.cs">
+      <DependentUpon>SellCaspx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\SellCaspx.aspx.designer.cs">
+      <DependentUpon>SellCaspx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\SelloPtionaspx.aspx.cs">
+      <DependentUpon>SelloPtionaspx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\SelloPtionaspx.aspx.designer.cs">
+      <DependentUpon>SelloPtionaspx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\shop.aspx.cs">
+      <DependentUpon>shop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\shop.aspx.designer.cs">
+      <DependentUpon>shop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\term.aspx.cs">
+      <DependentUpon>term.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\term.aspx.designer.cs">
+      <DependentUpon>term.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\trading.aspx.cs">
+      <DependentUpon>trading.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\trading.aspx.designer.cs">
+      <DependentUpon>trading.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\TreadBuyRecoed.aspx.cs">
+      <DependentUpon>TreadBuyRecoed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\TreadBuyRecoed.aspx.designer.cs">
+      <DependentUpon>TreadBuyRecoed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\TreadSellRecoed.aspx.cs">
+      <DependentUpon>TreadSellRecoed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\TreadSellRecoed.aspx.designer.cs">
+      <DependentUpon>TreadSellRecoed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\asset\userinfo.aspx.cs">
+      <DependentUpon>userinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\asset\userinfo.aspx.designer.cs">
+      <DependentUpon>userinfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\user.Master.cs">
+      <DependentUpon>user.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\user.Master.designer.cs">
+      <DependentUpon>user.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\admin.Master" />
+    <None Include="packages.config" />
+    <Content Include="user\user.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50049</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50049/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
