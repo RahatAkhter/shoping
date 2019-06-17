@@ -20,7 +20,41 @@
 
 
             $(document).ready(function () {
-                GetChats();
+               // GetChats();
+                
+             var $tbl = $('#datatable');
+                    $.ajax({
+                        url: 'ChatBox.aspx/abc',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        method: 'post',
+                        data: "{}",
+                        async: false,
+                        success: function (data) {
+                            alert("ssss");
+                       len = data.d.length;
+
+                                $tbl.empty();
+                                $tbl.append(' <tr><th>emp_id</th><th>Name</th><th>Date</th><th>TimeIn</th><th>TimeOut</th><th></th></tr>');
+
+                                for (var i = 0; i < data.d.length; i++) {
+
+
+                                    $tbl.append('<tr ><td ><label  id="emp' + i + '">' + data.d[i].friend_name + '</label></td><td><label  id="dd' + i + '">dddd</label></td><td>' + data.d[i].friend_name + '</td><td><input type="time" id="txtin' + i + '" class="form-control"  /></td><td><input type="time" id="txtout' + i + '"  class="form-control"/></td><td><label style="color:red" id="lbl' + i + '">Absent</label></td></tr>');
+                                }
+
+                                
+
+                          
+                        },
+                        error: function (err) {
+                            alert("Error");
+                        }
+
+
+                    });
+
+        
 
             });
 
@@ -40,45 +74,48 @@
         });
     });
 
-        // function getData() {
+    //           function GetChats() {
+    //               var tbl = $('#main2');
+                   
+    //        $.ajax({
 
-        //    var $tbl = $('#tblSteward');
-
-        //     $.ajax({
-
-        //            type: "POST",
-        //            contentType: "application/json",
-        //            url: 'ChatBox.aspx/Get_Chat',
-        //            data: "{}",
-        //            datatype: "json",
-        //         success: function (data) {
-        //             console.log("success");
-        //             debugger;
-                     
-        //                    var newdata = data.d;
-        //             $tbl.empty();
-        //              $tbl.append('<tr style=" color:black;"><th>ID</th><th>Name</th></tr>');
-                       
-        //                    var rows = [];
-        //                for (var i = 0; i < newdata.length; i++) {
-          
-        //                            rows.push('<tr><td>' + newdata[i].id + '</td><td>' + newdata[i].name + '</td></tr>');
-
-        //                    }
-        //                    $tbl.append(rows.join(''));
+    //            type: "POST",
+    //            contentType: "application/json",
+    //            url: 'ChatBox.aspx/Getuser',
+    //            data: "{}",
+    //            datatype: "json",
+    //            async: false,
+    //            success: function (data) {
+    //                alert(data.d);
+    //                //debugger;
+    //                // if (data.d.length >0) {
+    //                //      var newdata = data.d;
+    //                //      tbl.empty();
                         
+    //                    for (var i = 0; i < data.d.length; i++) {
+                             
+    //                         tbl.append('<div class="chat_list" id="' + i + '"  onclick="func2(' + i + ');" ><span id="Text' + i + '" style=" display:none;">' + newdata[i].id + '</span><div class="chat_people"><div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div><div class="chat_ib"> <h5>' + newdata[i].friend_name + '</h5></div></div></div>');
+    //                       // tbl.append(data.d[i].id + '<br>');
+                           
+    //                      }
+                          
+    //                //  }
+                    
+    //            },
+    //            error: function (err) {
+    //                console.log(err);
+    //            }
+    //        });
 
-        //            },
-        //            error: function (err) {
-        //                Console.log(err + "errooorr he");
-        //            }
-        //    });
+    //        setTimeout(GetChats, 15000);
+    //}
 
-            
-        //}
+
+
+       
 
         function show_New_Deals(u_id) {
-            //alert("func mai he");
+            alert("func mai he");
             var tbl = $('#chat');
             if (u_id == '0') {
                 console.log("");
@@ -121,7 +158,7 @@
 
                     },
                     error: function (err) {
-                        Console.log(err + "errooorr he");
+                       // Console.log(err + "errooorr he");
                     }
                 });
 
@@ -131,44 +168,7 @@
 
 
 
- function GetChats() {
-            var tbl = $('#main2');
-           
-            //$('#notiContent').append($('<li>Loading...</li>'));
-            $.ajax({
-
-                type: "POST",
-                contentType: "application/json",
-                url: 'ChatBox.aspx/Getusers',
-                data: "{}",
-                datatype: "json",
-                success: function (data) {
-                   
-                    debugger;
-                     if (data.d.length > 0) {
-                          var newdata = data.d;
-                          tbl.empty();
-                         // $('span.count').html(data.d.length);
-                          //var rows = [];
-                         for (var i = 0; i < newdata.length; i++) {
-                            
-                            
-                                     tbl.append('<div class="chat_list" id="' + i + '"  onclick="func2(' + i + ');" ><span id="Text' + i + '" style=" display:none;">' + newdata[i].id + '</span><div class="chat_people"><div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div><div class="chat_ib"> <h5>' + newdata[i].friend_name + '</h5></div></div></div>');
-                             
-                            
-                             
-                          }
-                          
-                      }
-
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
-
-            setTimeout(GetChats, 15000);
-            }       
+  
 
 
                 function func2(i) {
@@ -417,6 +417,11 @@ img{ max-width:100%;}
     </div>
        
     </div>
+
+         <table id="datatable" style=" width:100%; height:300px;">
+      
+        
+    </table>
     </form>
 </body>
 </html>

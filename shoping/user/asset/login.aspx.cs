@@ -11,7 +11,7 @@ namespace shoping.user.asset
 {
     public partial class login : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O14MIVL;Initial Catalog=bitcoin;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-M0E38T9;Initial Catalog=bitcoin;User ID=sa;Password=65891841");
 
         protected void Page_Load(object sender, EventArgs e)
         {
