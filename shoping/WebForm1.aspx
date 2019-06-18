@@ -31,14 +31,14 @@
           $(function () {
         var notifications = $.connection.myHub;
        
-         notifications.client.displayStatus = function () {
-             //  show_New_Deals(2);
+              notifications.client.displayStatus = function () {
+                  show_New_Deals(u_id);
            
         };
         
         $.connection.hub.start().done(function (res) {
             alert("connection started" + res)
-            //show_New_Deals(2);
+            show_New_Deals(u_id);
         }).fail(function (e) {
             alert(e);
         });
@@ -90,75 +90,108 @@
             $("div").removeClass("active_chat");
             document.getElementById(i).className += ' active_chat'
           //  var x = document.getElementById('Text'+i).value;
-            var txt = ($('#Text'+i).text());
-             
+            var txt = ($('#Text' + i).text());
+            u_id = txt;
             alert(txt);
 
-            // if (u_id == '0') {
+             if (u_id == '0') {
 
-            //    console.log("");
-            //}
-            //else {
+                console.log("");
+            }
+            else {
 
-            //    show_New_Deals(u_id);
-            //}
+                show_New_Deals(u_id);
+            }
 
         }
 
 
-        //function show_New_Deals(u_id) {
-        //    //alert("func mai he");
-        //    var tbl = $('#chat');
-        //    if (u_id == '0') {
-        //        console.log("");
-        //    }
-        //    else {
+        function show_New_Deals(u_id) {
+            //alert("func mai he");
+            var tbl = $('#chat');
+            if (u_id == '0') {
+                console.log("");
+            }
+            else {
 
-        //        $.ajax({
+                $.ajax({
 
-        //            type: "POST",
-        //            contentType: "application/json",
-        //            url: 'WebForm1.aspx/GetMessages',
-        //            data: "{}",
-        //            datatype: "json",
-        //            success: function (data) {
+                    type: "POST",
+                    contentType: "application/json",
+                    url: 'WebForm1.aspx/GetMessages',
+                    data: "{'u_id':'" + u_id + "'}",
+                    datatype: "json",
+                    success: function (data) {
 
-        //                debugger;
-        //                if (data.d.length > 0) {
+                        debugger;
+                        if (data.d.length > 0) {
 
-        //                    if (data.d != "") {
-        //                        var newdata = data.d;
-        //                        tbl.empty();
+                            if (data.d != "") {
+                                var newdata = data.d;
+                                tbl.empty();
 
-        //                        var rows = [];
-        //                        for (var i = 0; i < newdata.length; i++) {
+                                var rows = [];
+                                for (var i = 0; i < newdata.length; i++) {
 
-        //                            if ((newdata[i].myid == newdata[i].from_id)) {
-        //                                rows.push('<div class="outgoing_msg"><div class="sent_msg"><p>' + newdata[i].text + '</p><span class="time_date"> 11:01 AM    |    Today</span></div></div>');
+                                    if ((newdata[i].myid == newdata[i].from_id)) {
+                                        rows.push('<div class="outgoing_msg"><div class="sent_msg"><p>' + newdata[i].text + '</p></div></div>');
 
-        //                            }
-        //                            else {
-        //                                rows.push('<div class="incoming_msg"><div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div><div class="received_msg"><divclass="received_withd_msg"><p>' + newdata[i].text + '</p><spanclass="time_date"> 11:01 AM    |    Today</span></div></div></div>');
+                                    }
+                                    else {
+                                        rows.push('<div class="incoming_msg"><div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="shaban"> </div><div class="received_msg"><divclass="received_withd_msg"><p>' + newdata[i].text + '</p></div></div></div></br>');
 
-        //                            }
+                                    }
 
-        //                        }
-        //                    }
+                                }
+                            }
                             
-        //                    tbl.append(rows.join(''));
-        //                }
+                            tbl.append(rows.join(''));
+                        }
 
-        //            },
-        //            error: function (err) {
-        //                Console.log(err + "errooorr he");
-        //            }
-        //        });
+                    },
+                    error: function (err) {
+                        Console.log(err + "errooorr he");
+                    }
+                });
 
-        //    }
+            }
          
-        //}
+        }
 
-        
+         function send() {
+
+    var msg = $('#txt').val();
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: 'WebForm1.aspx/Send_Msg',
+                    data: "{'txt':'" + msg +"','u_id':'" + u_id +"'}",
+                    dataType: "json",
+
+                    async: false,
+
+                    success: function (data) {
+
+                        if (data.d == "Saved") {
+                            alert("send ho gya");
+                            document.getElementById('txt').value = "";
+                        }
+                        
+                        else {
+                            alert(data.d.toString());
+                        }
+                    },
+                    error: function (err) {
+
+                        alert("error occur" + JSON.stringify(err));
+                    }
+
+
+                });
+           
+        }
+
+
     </script>
 
      <style>

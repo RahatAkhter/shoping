@@ -13,6 +13,14 @@
     
     <link rel="shortcut icon" type="image/ico" href="asset/pic/icon/favicon.png" />
     
+     <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <!-- CSS Files -->
     <link href="asset/css/but.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -29,6 +37,149 @@
 
     <!-- JS Files -->
     <script src="js/select2.min.js"></script>
+    <style type="text/css">
+        
+                .noti-content{
+            position:fixed;
+            right:100px;
+            background:#e5e5e5;
+            border-radius:4px;
+            top:47px;
+            width:250px;
+            display:none;
+            border: 1px solid #9E988B;
+        }
+        ul#notiContent{
+            max-height:200px;
+            overflow:auto;
+            padding:0px;
+            margin:0px;
+            padding-left:20px;
+        }
+            ul#notiContent li {
+                margin:3px;
+                padding:6px;
+                background:#fff;
+            }
+            .noti-top-arrow{
+                border-color:transparent;
+                border-bottom-color:#F5DEB3;
+                border-style:dashed dashed solid;
+                border-width: 0 8.5px 8.5px;
+                position:absolute;
+                right:32px;
+                top:-8px;
+            }
+            span.noti{
+                color:#FF2323;
+                margin:15px;
+                position:fixed;
+                right:100px;
+                font-size:18px;
+                cursor:pointer;
+            }
+            span.count{
+                position:relative;
+                top:-3px;
+            }
+    </style>
+
+   
+        <script type="text/javascript">
+
+        
+
+
+        $(document).ready(function () {
+
+             $('span.noti').click(function (e) {
+            e.stopPropagation();
+                 $('.noti-content').show();
+                 
+                 
+            $('span.count', this).html('&nbsp;');
+        });
+            // hide notifications
+        $('html').click(function () {
+            $('.noti-content').hide();
+            Update_Isread();
+            GetNotification();    
+
+            });
+            GetNotification();
+        });
+
+                          
+           
+        
+        function GetNotification() {
+            var tbl = $('#notiContent');
+            
+            $('#notiContent').append($('<li>Loading...</li>'));
+            $.ajax({
+
+                type: "POST",
+                contentType: "application/json",
+                url: '/user/Notification.aspx/Get_Notification',
+                data: "{}",
+                datatype: "json",
+                success: function (data) {
+                   // alert(data.d.length);
+                    debugger;
+                    if (data.d!= null){
+                if (data.d.length > 0) {
+                    var newdata = data.d;
+                    tbl.empty();
+                    $('span.count').html(data.d.length);
+                    var rows = [];
+                    var count = 0;
+                    for (var i = 0; i < newdata.length; i++) {
+                        
+                            tbl.append('<li> ' + newdata[i].msg + ' </li>');
+                            count++;
+                        
+                    }
+                    $('span.count').html(count.toString());
+                    tbl.append(rows.join(''));
+                }
+            }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+
+            setTimeout(GetNotification, 15000);
+    }          
+
+
+        function Update_Isread() {
+
+            //    $.ajax({
+
+            //    type: "POST",
+            //    contentType: "application/json; charset=utf-8",
+            //    url: 'EHome.aspx/Update_Isread',
+            //    data: "{}",
+            //    dataType: "json",
+
+            //    async: false,
+
+            //    success: function (data) {
+            //        console.log(data.d);
+
+            //    }, error: function () {
+
+            //        console.log("Error Occure");
+            //    }
+
+            //});
+        
+    }
+    
+
+
+    </script>
 
 </head>
 
@@ -85,6 +236,14 @@
 
                             
                                     <li><a href="contact">Contact</a></li>
+
+                                    <li>
+                                <span class="noti glyphicon glyphicon-bell"><span class="count">&nbsp;</span></span>
+                    <div class="noti-content">
+                        <div class="noti-top-arrow"></div>
+                        <ul id="notiContent"></ul>
+                    </div>
+        </li>
                                 </ul>
                             </div>
                         </div>

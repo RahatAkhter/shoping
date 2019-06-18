@@ -29,41 +29,9 @@ namespace shoping
 
         }
 
-        [WebMethod]
-        public static IEnumerable<GetUsers> Getuser()
-        {
-            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DBMS"].ConnectionString))
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(@"select u.name,u.User_id
-from friends as f
-left join Users as u
-on u.User_id=f.friend_Id
-where f.User_id='ab@gmail.com'" +
-"", connection))
-                {
+      
 
-                    if (connection.State == ConnectionState.Closed)
-                        connection.Open();
-
-                    using (var reader = command.ExecuteReader())
-                        return reader.Cast<IDataRecord>()
-                            .Select(x => new GetUsers()
-                            {
-
-                                friend_name = x.GetString(0),
-                                id = x.GetString(1)
-
-                            }).ToList();
-
-
-
-                }
-            }
-
-        }
-
-
+        
 
 
     }
@@ -85,5 +53,10 @@ public class GetUsers
 public class message
 {
     public string text { get; set; }
+    public string myid { get; set; }
+    public string from_id { get; set; }
+    public string to_id { get; set; }
+
+
 }
 
